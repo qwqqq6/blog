@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url, include
 from . import views
 
 urlpatterns = [
+    url(r'mdeditor/', include('mdeditor.urls')),
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('blog/<int:article_id>', views.article_detail, name='article_detail')
